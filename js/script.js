@@ -15,6 +15,10 @@ function getRandomImage(){
 }
 
 function getGenderPrediction(){
+    //Fetching gender result from API after converting the response to a JSON response
+    fetch(APIgender + input)
+    .then(response => response.json())
+    .then(results => document.getElementById("gender_prediction").textContent = results.gender);
 }
 
 function getAgePrediction(){
