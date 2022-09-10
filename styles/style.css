@@ -1,0 +1,145 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    font-family: 'Allan';
+    background-color: rgb(252, 245, 236);
+}
+
+.main_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: none;
+}
+
+/*Start ofStartup container styling*/
+.startup_container{
+    background-image: url(https://wallpaper.dog/large/20493178.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.startup_container button{
+    border-radius: 20px;
+    background-color: #ED0137;
+    color: white;
+    width: 15rem;
+    padding: 2vh 2vw;
+    border: none;
+    font-weight: bold;
+}
+
+.startup_container button:hover{
+    background-color: #c50431;
+}
+
+.startup_container p{
+    font-size: 3.5rem;
+    font-weight: bolder;
+    padding-bottom: 5vh;
+}
+/*End of Startup container styling*/
+
+/*Start of information section design*/
+.information_side{
+    height: 100vh;
+    width: 35rem;
+    display: flex;
+    flex: 1 1 35rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://i.pinimg.com/originals/cc/93/b3/cc93b314146ecbca2e1f98a5ce6196f2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.information_side img{
+    width: 58%;
+    height: 35%;
+    border-radius: 100%;
+    border: 5px solid #E6E6E6;
+}
+
+.data{
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2vh;
+}
+
+.data > p{
+    font-size: 1.4rem;
+    font-weight: bolder;
+}
+
+.data input{
+    width: 17rem;
+    margin: 2vh 0;
+    padding: 1.5vh 1.5vw;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: rgb(252, 245, 236);
+}
+
+.data button{
+    border-radius: 20px;
+    background-color: black;
+    color: rgb(252, 245, 236);
+    width: 8.5rem;
+    padding: 1.5vh 1.5vw;
+    border: none
+}
+
+.data button:hover{
+    background-color: rgb(56, 55, 55);
+}
+/*End of information section design*/
+
+.divider{
+    border-left: 0.5px solid black;
+    height: 100vh;
+}
+
+/*Start of result section design*/
+.prediction_side{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+#status{
+    color: #EC732A;
+}
+
+.prediction_content{
+    padding: 0 2vw;
+}
+
+.prediction_side p{
+    line-height: 2;
+    font-size: 24px;
+    visibility:hidden;
+}
+/*End of information section design*/
+
+@media screen and (max-width:950px) {
+    .prediction_side p{
+        font-size: 20px;
+    } 
+}
