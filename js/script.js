@@ -62,10 +62,12 @@ function getNationalityPrediction(input){
     .then(results => {
         //Fetching one or two nationalities depending on the length of the country array
         if(results.country.length > 1){
-            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + " and " + results.country[1].country_id
+            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
+            " with probability of " + results.country[0].probability.toFixed(2) + " and " + results.country[1].country_id + 
+            " with probability of " + results.country[1].probability.toFixed(2);
         }
         else if(results.country.length == 1){
-            document.getElementById("nationality_prediction").textContent = results.country[0].country_id
+            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + " with probability of " + results.country.probability.toFixed(2)
         }
         else{
             document.getElementById("nationality_prediction").textContent = "No results found!"
