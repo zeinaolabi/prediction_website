@@ -8,6 +8,10 @@ const button = document.getElementById("submit");
 getRandomImage();
 
 function getRandomImage(){
+    //Fetching image link from the API after converting the response to a JSON response
+    fetch(dogImage)
+    .then(response => response.json())
+    .then(image => document.getElementById("dog_image").src = image.message);
 }
 
 function getGenderPrediction(){
