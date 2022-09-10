@@ -22,6 +22,10 @@ function getGenderPrediction(){
 }
 
 function getAgePrediction(){
+    //Fetching age result from API after converting the response to a JSON response
+    fetch(APIage + input)
+    .then(response => response.json())
+    .then(results => document.getElementById("age_prediction").textContent = results.age);
 }
 
 function getNationalityPrediction(){
