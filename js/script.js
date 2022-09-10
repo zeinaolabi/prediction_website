@@ -5,7 +5,18 @@ const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
 const button = document.getElementById("submit");
 
+//Changing the dog image
 getRandomImage();
+
+//Reveal results on click
+button.addEventListener('click', (event) => {
+    let input = document.querySelector('[name="input"]').value
+    document.getElementById("name").textContent = input
+
+    getGenderPrediction();
+    getNationalityPrediction();
+    getAgePrediction();
+})
 
 function getRandomImage(){
     //Fetching image link from the API after converting the response to a JSON response
