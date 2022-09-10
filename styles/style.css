@@ -5,7 +5,7 @@
 
 body{
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Allan';
     background-color: rgb(252, 245, 236);
 }
 
@@ -13,7 +13,43 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    display: none;
 }
+
+/*Startup container styling*/
+.startup_container{
+    background-image: url(https://wallpaper.dog/large/20493178.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.startup_container button{
+    border-radius: 20px;
+    background-color: #ED0137;
+    color: white;
+    width: 15rem;
+    padding: 2vh 2vw;
+    border: none;
+    font-weight: bold;
+}
+
+.startup_container button:hover{
+    background-color: #c50431;
+}
+
+.startup_container p{
+    font-size: 3.5rem;
+    font-weight: bolder;
+    padding-bottom: 5vh;
+}
+
+/*Start of information section design*/
 
 .information_side{
     height: 100vh;
@@ -68,10 +104,14 @@ body{
     border: none
 }
 
+/*End of information section design*/
+
 .divider{
     border-left: 0.5px solid black;
     height: 100vh;
 }
+
+/*Start of result section design*/
 
 .prediction_side{
     width: 65%;
@@ -86,3 +126,4 @@ body{
     font-size: 24px;
     font-weight: bold;
 }
+/*End of information section design*/

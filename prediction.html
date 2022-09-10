@@ -1,5 +1,7 @@
 40 lines (34 sloc)  1.31 KB
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +14,21 @@
 </head>
 
 <body>
+    <div class="startup_container">
+        <p>The prediction game!</p>
+        <button id="start">Start now!</button>
+    </div>
+
     <div class="main_container">
         <!--information section starts here-->
         <div class="information_side">
             <img id="dog_image" src="" alt="dog image">
 
+            <!--Retrieving data from user-->
             <div class="data">
                 <p class="description">Hi! please enter your name</p>
-                <input type="text" placeholder="First name">
-                <button>Submit</button>
+                <input type="text" placeholder="First name" name="input">
+                <button id="submit">Submit</button>
             </div>
         </div>
         <!--Infomration section ends here-->
@@ -29,10 +37,11 @@
 
         <!--prediction result section starts here-->
         <div class="prediction_side">
-            <p>Hello, <span class="name"></span>!</p>
-            <p>Your predicted gender is: <span class="gender_prediction"></span></p>
-            <p>Your predicted age is: <span class="age_prediction"></span></p>
-            <p>Your predicted nationality is: <span class="nationality_prediction"></span></p>
+            <!--Changing span according to the data that will be fetched from APIs-->
+            <p>Hello, <span id="name"></span>!</p>
+            <p>Your predicted gender is: <span id="gender_prediction"></span></p>
+            <p>Your predicted age is: <span id="age_prediction"></span></p>
+            <p>Your predicted nationality is: <span id="nationality_prediction"></span></p>
         </div>
         <!--prediction result section ends here-->
     </div>  
