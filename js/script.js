@@ -3,13 +3,21 @@ const APIgender = "https://api.genderize.io?name=";
 const APIage ="https://api.agify.io/?name=";
 const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
-const button = document.getElementById("submit");
+const inputButton = document.getElementById("submit");
+const startupButton = document.getElementById("start");
 
 //Changing the dog image
 getRandomImage();
 
+//Hide startup container and view the main page
+startupButton.addEventListener('click', (event) => {
+    console.log("ho")
+    document.querySelectorAll(".startup_container").forEach(a=>a.style.display = "none");
+    document.querySelectorAll(".main_container").forEach(a=>a.style.display = "flex");
+})
+
 //Reveal results on click
-button.addEventListener('click', (event) => {
+inputButton.addEventListener('click', (event) => {
     let input = document.querySelector('[name="input"]').value
     document.getElementById("name").textContent = input
 
