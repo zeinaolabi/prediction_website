@@ -16,7 +16,7 @@ body{
     display: none;
 }
 
-/*Startup container styling*/
+/*Start ofStartup container styling*/
 .startup_container{
     background-image: url(https://wallpaper.dog/large/20493178.png);
     background-repeat: no-repeat;
@@ -48,9 +48,9 @@ body{
     font-weight: bolder;
     padding-bottom: 5vh;
 }
+/*End of Startup container styling*/
 
 /*Start of information section design*/
-
 .information_side{
     height: 100vh;
     width: 35rem;
@@ -69,7 +69,7 @@ body{
     width: 58%;
     height: 35%;
     border-radius: 100%;
-    border: 5px solid rgb(252, 245, 236);
+    border: 5px solid #E6E6E6;
 }
 
 .data{
@@ -104,6 +104,9 @@ body{
     border: none
 }
 
+.data button:hover{
+    background-color: rgb(56, 55, 55);
+}
 /*End of information section design*/
 
 .divider{
@@ -112,7 +115,6 @@ body{
 }
 
 /*Start of result section design*/
-
 .prediction_side{
     width: 65%;
     display: flex;
@@ -121,9 +123,14 @@ body{
     justify-content: center;
 }
 
+.prediction_content{
+    padding: 0 2vw;
+}
+
 .prediction_side p{
-    padding: 2vh 2vw;
+    line-height: 2;
     font-size: 24px;
     font-weight: bold;
+    visibility:hidden;
 }
 /*End of information section design*/
