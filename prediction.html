@@ -1,3 +1,5 @@
+40 lines (34 sloc)  1.31 KB
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <div class="main_container">
         <!--information section starts here-->
         <div class="information_side">
-            <img src="https:\/\/images.dog.ceo\/breeds\/poodle-standard\/n02113799_6382.jpg">
+            <img id="dog_image" src="" alt="dog image">
 
             <div class="data">
                 <p class="description">Hi! please enter your name</p>
@@ -22,6 +24,18 @@
             </div>
         </div>
         <!--Infomration section ends here-->
+
+        <div class="divider"></div>
+
+        <!--prediction result section starts here-->
+        <div class="prediction_side">
+            <p>Hello, <span class="name"></span>!</p>
+            <p>Your predicted gender is: <span class="gender_prediction"></span></p>
+            <p>Your predicted age is: <span class="age_prediction"></span></p>
+            <p>Your predicted nationality is: <span class="nationality_prediction"></span></p>
+        </div>
+        <!--prediction result section ends here-->
+    </div>  
 
     <script src="js/prediction.js"></script>
 </body>
