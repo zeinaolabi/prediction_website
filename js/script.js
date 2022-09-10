@@ -29,4 +29,16 @@ function getAgePrediction(){
 }
 
 function getNationalityPrediction(){
+    //Fetching nationality result from API after converting the response to a JSON response
+    fetch(APInationality + input)
+    .then(response => response.json())
+    .then(results => {
+        //Fetching one or two nationalities depending on the length of the country array
+        if(results.country.length == 1){
+            document.getElementById("nationality_prediction").textContent = results.country[0].country_id
+        }
+        else{
+            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + " and " + results.country[1].country_id
+        }
+    });
 }
