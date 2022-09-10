@@ -6,7 +6,7 @@ const dogImage = "https://dog.ceo/api/breeds/image/random";
 const inputButton = document.getElementById("submit");
 const startupButton = document.getElementById("start");
 
-//Changing the dog image
+//Changing the random image on refresh
 getRandomImage();
 
 //Hide startup container and view the main page
@@ -19,9 +19,12 @@ startupButton.addEventListener('click', (event) => {
 inputButton.addEventListener('click', (event) => {
     let input = document.querySelector('[name="input"]').value.trim()
 
+    //Validate name
     if(typeof input !== "string" || /[^A-Za-z]+/g.test(input) || input == ""){
         document.getElementById("status").textContent = "Invalid Input"
+        document.getElementById("result").style.visibility = "hidden"
     }else{
+        //Show results
         document.getElementById("result").style.visibility = "visible"
         document.getElementById("status").textContent = "Hello, " + input + "!"
 
@@ -32,7 +35,7 @@ inputButton.addEventListener('click', (event) => {
 })
 
 function getRandomImage(){
-    //Fetching image link from the API after converting the response to a JSON response
+    //Fetching image link from the API after converting the response to a JSON object
     fetch(dogImage)
     .then(response => response.json())
     .then(image => document.getElementById("dog_image").src = image.message);
@@ -40,7 +43,7 @@ function getRandomImage(){
 
 function getGenderPrediction(input){
     console.log(APIgender + input)
-    /*Fetching gender result from API after converting the response to a JSON response
+    /*Fetching gender result from API after converting the response to a JSON object
     As well as making sure the result isn't null*/
     fetch(APIgender + input)
     .then(response => response.json())
@@ -48,7 +51,7 @@ function getGenderPrediction(input){
 }
 
 function getAgePrediction(input){
-    /*Fetching age result from API after converting the response to a JSON response
+    /*Fetching age result from API after converting the response to a JSON object
     As well as making sure the result isn't null*/
     fetch(APIage + input)
     .then(response => response.json())
@@ -56,18 +59,19 @@ function getAgePrediction(input){
 }
 
 function getNationalityPrediction(input){
-    //Fetching nationality result from API after converting the response to a JSON response
+    //Fetching nationality result from API after converting the response to a JSON object
     fetch(APInationality + input)
     .then(response => response.json())
     .then(results => {
-        //Fetching one or two nationalities depending on the length of the country array
+        //Fetching one or two nationalities depending on the length of country array
         if(results.country.length > 1){
             document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
             " with probability of " + results.country[0].probability.toFixed(2) + " and " + results.country[1].country_id + 
             " with probability of " + results.country[1].probability.toFixed(2);
         }
         else if(results.country.length == 1){
-            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + " with probability of " + results.country.probability.toFixed(2)
+            document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
+            " with probability of " + results.country[0].probability.toFixed(2)
         }
         else{
             document.getElementById("nationality_prediction").textContent = "No results found!"

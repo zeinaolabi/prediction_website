@@ -62,7 +62,7 @@ body{
     background-image: url("https://i.pinimg.com/originals/cc/93/b3/cc93b314146ecbca2e1f98a5ce6196f2.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .information_side img{
@@ -123,6 +123,10 @@ body{
     justify-content: center;
 }
 
+#status{
+    color: #EC732A;
+}
+
 .prediction_content{
     padding: 0 2vw;
 }
@@ -133,3 +137,9 @@ body{
     visibility:hidden;
 }
 /*End of information section design*/
+
+@media screen and (max-width:950px) {
+    .prediction_side p{
+        font-size: 20px;
+    } 
+}
