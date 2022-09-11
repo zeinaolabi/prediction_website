@@ -159,14 +159,21 @@ body{
     padding: 0 3vw;
 }
 
-.prediction_side p{
+.result{
     line-height: 2;
     font-size: 24px;
     visibility:hidden;
 }
 
 .activity_section{
+    margin-top: 1vh;
     visibility: hidden;
+    color: black;
+}
+
+.activity_section p{
+    line-height: 2;
+    font-size: 24px; 
 }
 /*End of information section design*/
 

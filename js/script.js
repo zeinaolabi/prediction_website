@@ -4,6 +4,7 @@ const APIage ="https://api.agify.io/?name=";
 const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
 const APIip = "https://api.ipify.org/?format=json";
+const APIactivity = "https://www.boredapi.com/api/activity"
 const inputButton = document.getElementById("submit");
 const signinModal = document.getElementById("signin_modal");
 const signinButton = document.getElementById("signin");
@@ -15,7 +16,6 @@ const login = document.getElementById("login");
 const register = document.getElementById("register");
 const loginError = document.getElementById("login_error");
 const regError = document.getElementById("reg_error");
-const IPAddress = document.getElementById("ip_address");
 const boredButton = document.getElementById("bored");
 
 //When the user clicks on the button, open the modal
@@ -121,9 +121,9 @@ inputButton.addEventListener('click', (event) => {
     }
 })
 
+//When bored button is clicked, show activity section and add a random activity
 boredButton.addEventListener('click', (event) => {
     document.getElementById("activity_section").style.visibility = "visible"
-
     getRandomActivity();
 })
 
@@ -159,12 +159,12 @@ function getNationalityPrediction(input){
         //Fetching one or two nationalities depending on the length of country array
         if(results.country.length > 1){
             document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
-            " with probability of " + results.country[0].probability.toFixed(2) + " and " + results.country[1].country_id + 
-            " with probability of " + results.country[1].probability.toFixed(2);
+            " with probability of " + (results.country[0].probability.toFixed(2)*100) + "% and " + results.country[1].country_id + 
+            " with probability of " + (results.country[1].probability.toFixed(2)*100) + "%"
         }
         else if(results.country.length == 1){
             document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
-            " with probability of " + results.country[0].probability.toFixed(2)
+            " with probability of " + (results.country[0].probability.toFixed(2)*100) + "%";
         }
         else{
             document.getElementById("nationality_prediction").textContent = "No results found!"
@@ -173,9 +173,18 @@ function getNationalityPrediction(input){
 }
 
 function getIPAddress(){
-    //Fetching IP address using Axios
+    //Fetching IP address from an API using Axios
     axios(APIip)
     .then(response => {
-        IPAddress.textContent = response.data.ip
+        document.getElementById("ip_address").textContent = response.data.ip
+    })
+}
+
+function getRandomActivity(){
+    //Fetching an activity from an API using Axios
+    axios(APIactivity)
+    .then(response => {
+        console.log(response.data.activity)
+        document.getElementById("activity").textContent = response.data.activity
     })
 }

@@ -10,12 +10,16 @@
 </head>
 
 <body>
+    <!--Start of start-up container-->
     <div class="startup_container">
+        <!--Content of start-up container-->
         <p class="game_name">The prediction game!</p>
         <button class="signin_btn" id="signin">Sign in</button>
         <p class="signup_para">Don't have an account? <button class ="inline_btn" id="signup">Sign up now!</button></p>
     </div>
+    <!--End of start-up container-->
 
+    <!--Start of the main container-->
     <div class="main_container">
         <!--information section starts here-->
         <div class="information_side">
@@ -39,19 +43,20 @@
             <div class="prediction_content">
                 <!--Changing span according to the data that will be fetched from APIs-->
                 <h1 class="orangeText" id="status">Please enter your name to start the game!</h1>
-                <p id="result">Your predicted gender is: <span id="gender_prediction"></span><br/>
+                <p class="result" id="result">Your predicted gender is: <span id="gender_prediction"></span><br/>
                    Your predicted age is: <span id="age_prediction"></span><br/>
                    Your predicted nationality is: <span id="nationality_prediction"></span></p>
                 <hr/>
 
-                <div id="activity_section">
+                <div class="activity_section" id="activity_section">
                     <h1 class="orangeText">A fun activity to do would be:</h1>
-                    <p id="activty"></p>
+                    <p class="activity_result" id="activity"></p>
                 </div>
             </div>
         </div>
         <!--prediction result section ends here-->
     </div>  
+    <!--End of the main container-->
 
     <!--Sign in modal section starts here-->
     <div id="signin_modal" class="modal">
@@ -64,7 +69,7 @@
                 <input type="text" id="username" name="username" placeholder="Username">
                 <input type="text" id="password" name="password" placeholder="Password">
                 <button class="login_btn" id="login">Login</button>
-                <h3 class="error" id="login_error"></h3>
+                <h4 class="error" id="login_error"></h4>
             </div>
         </div>
     </div>
@@ -81,7 +86,7 @@
                 <input type="text" id="new_username" name="username" placeholder="Username">
                 <input type="text" id="new_password" name="password" placeholder="Password">
                 <button class="login_btn" id="register">Sign up</button>
-                <h3 class="error" id="reg_error"></h3>
+                <h4 class="error" id="reg_error"></h4>
             </div>
         </div>
     </div>
