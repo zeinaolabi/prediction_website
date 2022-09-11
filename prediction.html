@@ -45,12 +45,12 @@
         <!--prediction result section ends here-->
     </div>  
 
-    <!--Modal section starts here-->
+    <!--Sign in modal section starts here-->
     <div id="signin_modal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span id="close_signin" class="close">&times;</span>
             <div class="info">
                 <h1>Sign in page</h1>
                 <input type="text" id="username" name="username" placeholder="Username">
@@ -59,7 +59,23 @@
             </div>
         </div>
     </div>
-     <!--Modal section ends here--> 
+    <!--Sign in modal section ends here-->
+
+    <!--Sign up modal section starts here-->
+    <div id="signup_modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close_signup" class="close">&times;</span>
+            <div class="info">
+                <h1>Sign in page</h1>
+                <input type="text" id="new_username" name="username" placeholder="Username">
+                <input type="text" id="new_password" name="password" placeholder="Password">
+                <button class="login_btn" id="register">Sign up</button>
+            </div>
+        </div>
+    </div>
+     <!--Sign up modal section ends here--> 
 
     <script src="js/script.js"></script>
 </body>

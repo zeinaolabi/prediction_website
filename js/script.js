@@ -4,10 +4,12 @@ const APIage ="https://api.agify.io/?name=";
 const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
 const inputButton = document.getElementById("submit");
-const startupButton = document.getElementById("start");
-var signinModal = document.getElementById("signin_modal");
-var signinButton = document.getElementById("signin");
-var span = document.getElementsByClassName("close")[0];
+const signinModal = document.getElementById("signin_modal");
+const signinButton = document.getElementById("signin");
+const signupModal = document.getElementById("signup_modal");
+const signupButton = document.getElementById("signup");
+const closeSignin = document.getElementById("close_signin");
+const closeSignup = document.getElementById("close_signup");
 
 // When the user clicks on the button, open the modal
 signinButton.onclick = function() {
@@ -15,16 +17,30 @@ signinButton.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+closeSignin.onclick = function() {
     signinModal.style.display = "none";
+}
+
+// When the user clicks on the button, open the modal
+signupButton.onclick = function() {
+    signupModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+closeSignup.onclick = function() {
+    signupModal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == signinModal) {
-    signinModal.style.display = "none";
+    if (event.target == signinModal){
+      signinModal.style.display = "none";
+    }
+  
+    if (event.target == signupModal) {
+      signupModal.style.display = "none";
+    }
   }
-}
 
 //Changing the random image on refresh
 getRandomImage();
