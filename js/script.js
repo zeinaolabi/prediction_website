@@ -5,6 +5,26 @@ const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
 const inputButton = document.getElementById("submit");
 const startupButton = document.getElementById("start");
+var signinModal = document.getElementById("signin_modal");
+var signinButton = document.getElementById("signin");
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+signinButton.onclick = function() {
+    signinModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    signinModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == signinModal) {
+    signinModal.style.display = "none";
+  }
+}
 
 //Changing the random image on refresh
 getRandomImage();
