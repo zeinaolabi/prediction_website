@@ -3,17 +3,104 @@ const APIgender = "https://api.genderize.io?name=";
 const APIage ="https://api.agify.io/?name=";
 const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
+const APIip = "https://api.ipify.org/?format=json";
+const APIactivity = "https://www.boredapi.com/api/activity"
 const inputButton = document.getElementById("submit");
-const startupButton = document.getElementById("start");
+const signinModal = document.getElementById("signin_modal");
+const signinButton = document.getElementById("signin");
+const signupModal = document.getElementById("signup_modal");
+const signupButton = document.getElementById("signup");
+const closeSignin = document.getElementById("close_signin");
+const closeSignup = document.getElementById("close_signup");
+const login = document.getElementById("login");
+const register = document.getElementById("register");
+const loginError = document.getElementById("login_error");
+const regError = document.getElementById("reg_error");
+const boredButton = document.getElementById("bored");
+
+//When the user clicks on the button, open the modal
+signinButton.onclick = function() {
+    signinModal.style.display = "block";
+}
+
+//When the user clicks on x, close the modal
+closeSignin.onclick = function() {
+    signinModal.style.display = "none";
+}
+
+//When the user clicks on the button, open the modal
+signupButton.onclick = function() {
+    signupModal.style.display = "block";
+}
+
+//When the user clicks on x, close the modal
+closeSignup.onclick = function() {
+    signupModal.style.display = "none";
+}
+
+//When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == signinModal){
+      signinModal.style.display = "none";
+    }
+  
+    if (event.target == signupModal) {
+      signupModal.style.display = "none";
+    }
+}
+
+//When the user clicks, a new account is made
+register.addEventListener('click', (event) => {
+    //Getting the values the user has inserted
+    let newUser = document.getElementById("new_username").value.trim().toLowerCase();
+    let newPass= document.getElementById("new_password").value;
+
+    //Validating the username and sending error messages
+    if(newUser == "" || newPass == ""){
+        regError.textContent = "Error: Missing field"
+    }
+    else if(typeof newUser !== "string"){
+        regError.textContent = "Error: Invalid username"
+    }
+    else if(localStorage.getItem(newUser)){
+        regError.textContent = "Error: Username taken"
+    }
+    else{
+        //Add username&password to local storage and open the main page
+        localStorage.setItem(newUser, newPass);
+        document.querySelectorAll(".startup_container").forEach(a=>a.style.display = "none");
+        document.querySelectorAll(".main_container").forEach(a=>a.style.display = "flex");
+        signupModal.style.display = "none";
+    }
+})
+
+login.addEventListener('click', (event) => {
+    //Getting the values the user has inserted
+    let user = document.getElementById("username").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
+
+    //Check if user exists
+    if(localStorage.getItem(user)){
+        //Compare passwords
+        if(localStorage.getItem(user) == password){
+            document.querySelectorAll(".startup_container").forEach(a=>a.style.display = "none");
+            document.querySelectorAll(".main_container").forEach(a=>a.style.display = "flex");
+            signinModal.style.display = "none";
+        }
+        else{
+            loginError.textContent = "Error: Invalid password"
+        }
+    }
+    else{
+        loginError.textContent = "Error: Invalid username"
+    }
+})
 
 //Changing the random image on refresh
 getRandomImage();
 
-//Hide startup container and view the main page
-startupButton.addEventListener('click', (event) => {
-    document.querySelectorAll(".startup_container").forEach(a=>a.style.display = "none");
-    document.querySelectorAll(".main_container").forEach(a=>a.style.display = "flex");
-})
+//Reaveal IP Address
+getIPAddress();
 
 //Reveal results on click
 inputButton.addEventListener('click', (event) => {
@@ -32,6 +119,12 @@ inputButton.addEventListener('click', (event) => {
         getNationalityPrediction(input);
         getAgePrediction(input);
     }
+})
+
+//When bored button is clicked, show activity section and add a random activity
+boredButton.addEventListener('click', (event) => {
+    document.getElementById("activity_section").style.visibility = "visible"
+    getRandomActivity();
 })
 
 function getRandomImage(){
@@ -66,15 +159,32 @@ function getNationalityPrediction(input){
         //Fetching one or two nationalities depending on the length of country array
         if(results.country.length > 1){
             document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
-            " with probability of " + results.country[0].probability.toFixed(2) + " and " + results.country[1].country_id + 
-            " with probability of " + results.country[1].probability.toFixed(2);
+            " with probability of " + (results.country[0].probability.toFixed(2)*100) + "% and " + results.country[1].country_id + 
+            " with probability of " + (results.country[1].probability.toFixed(2)*100) + "%"
         }
         else if(results.country.length == 1){
             document.getElementById("nationality_prediction").textContent = results.country[0].country_id + 
-            " with probability of " + results.country[0].probability.toFixed(2)
+            " with probability of " + (results.country[0].probability.toFixed(2)*100) + "%";
         }
         else{
             document.getElementById("nationality_prediction").textContent = "No results found!"
         }
     });
+}
+
+function getIPAddress(){
+    //Fetching IP address from an API using Axios
+    axios(APIip)
+    .then(response => {
+        document.getElementById("ip_address").textContent = response.data.ip
+    })
+}
+
+function getRandomActivity(){
+    //Fetching an activity from an API using Axios
+    axios(APIactivity)
+    .then(response => {
+        console.log(response.data.activity)
+        document.getElementById("activity").textContent = response.data.activity
+    })
 }

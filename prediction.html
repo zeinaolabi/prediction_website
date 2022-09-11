@@ -10,11 +10,16 @@
 </head>
 
 <body>
+    <!--Start of start-up container-->
     <div class="startup_container">
-        <p>The prediction game!</p>
-        <button id="start">Start now!</button>
+        <!--Content of start-up container-->
+        <p class="game_name">The prediction game!</p>
+        <button class="signin_btn" id="signin">Sign in</button>
+        <p class="signup_para">Don't have an account? <button class ="inline_btn" id="signup">Sign up now!</button></p>
     </div>
+    <!--End of start-up container-->
 
+    <!--Start of the main container-->
     <div class="main_container">
         <!--information section starts here-->
         <div class="information_side">
@@ -22,9 +27,11 @@
 
             <!--Retrieving data from user-->
             <div class="data">
-                <p class="description">Hi! please enter your name</p>
+                <h2>Hi! please enter a name</h2>
                 <input type="text" placeholder="First name" name="input">
-                <button id="submit">Submit</button>
+                <button class="submit_btn" id="submit">Submit</button>
+                <h2>Feeling bored? <button class="inline_btn orange" id="bored"><h2>Click here!</h2></button></h2>
+                <h4>Your IP address is: <span id="ip_address"></span></h4>
             </div>
         </div>
         <!--Infomration section ends here-->
@@ -35,15 +42,57 @@
         <div class="prediction_side">
             <div class="prediction_content">
                 <!--Changing span according to the data that will be fetched from APIs-->
-                <h1 id="status">Please enter your name to start the game!</h1>
-                <p id="result">Your predicted gender is: <span id="gender_prediction"></span><br/>
+                <h1 class="orangeText" id="status">Please enter a name to start the game!</h1>
+                <p class="result" id="result">Your predicted gender is: <span id="gender_prediction"></span><br/>
                    Your predicted age is: <span id="age_prediction"></span><br/>
                    Your predicted nationality is: <span id="nationality_prediction"></span></p>
+                <hr/>
+
+                <div class="activity_section" id="activity_section">
+                    <h1 class="orangeText">A fun activity to do would be:</h1>
+                    <p class="activity_result" id="activity"></p>
+                </div>
             </div>
         </div>
         <!--prediction result section ends here-->
     </div>  
+    <!--End of the main container-->
 
+    <!--Sign in modal section starts here-->
+    <div id="signin_modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close_signin" class="close">&times;</span>
+            <div class="info">
+                <h1>Login</h1>
+                <input type="text" id="username" name="username" placeholder="Username">
+                <input type="text" id="password" name="password" placeholder="Password">
+                <button class="login_btn" id="login">Login</button>
+                <h4 class="error" id="login_error"></h4>
+            </div>
+        </div>
+    </div>
+    <!--Sign in modal section ends here-->
+
+    <!--Sign up modal section starts here-->
+    <div id="signup_modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close_signup" class="close">&times;</span>
+            <div class="info">
+                <h1>Create an account</h1>
+                <input type="text" id="new_username" name="username" placeholder="Username">
+                <input type="text" id="new_password" name="password" placeholder="Password">
+                <button class="login_btn" id="register">Sign up</button>
+                <h4 class="error" id="reg_error"></h4>
+            </div>
+        </div>
+    </div>
+     <!--Sign up modal section ends here--> 
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
