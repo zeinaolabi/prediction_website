@@ -29,7 +29,7 @@ body{
     height: 100vh;
 }
 
-.startup_container button{
+.signin_btn{
     border-radius: 20px;
     background-color: #ED0137;
     color: white;
@@ -39,14 +39,32 @@ body{
     font-weight: bold;
 }
 
-.startup_container button:hover{
+.signin_btn:hover{
     background-color: #c50431;
 }
 
-.startup_container p{
+.signup_btn{
+    margin-top: 1vh;
+    border: none;
+    background-color: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-block;
+    color:#ED0137;
+}
+
+.signup_btn:hover{
+    color:#c50431;
+}
+
+.game_name{
     font-size: 3.5rem;
     font-weight: bolder;
     padding-bottom: 5vh;
+}
+
+.signup_para{
+    font-size: 0.9rem;
 }
 /*End of Startup container styling*/
 
