@@ -43,7 +43,7 @@ body{
     background-color: #c50431;
 }
 
-.signup_btn{
+.inline_btn{
     margin-top: 1vh;
     border: none;
     background-color: inherit;
@@ -109,22 +109,31 @@ body{
     margin: 2vh 0;
     padding: 1.5vh 1.5vw;
     border-radius: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(162, 162, 162);
     background-color: rgb(252, 245, 236);
+    outline-color: #ED0137;
 }
 
-.data button{
+.submit_btn{
     border-radius: 20px;
-    background-color: black;
+    background-color: #EC732A;
     color: rgb(252, 245, 236);
     width: 8.5rem;
     padding: 1.5vh 1.5vw;
-    border: none;
+    border: 2px solid #ea6614;
     margin-bottom: 1vw;
 }
 
-.data button:hover{
-    background-color: rgb(56, 55, 55);
+.submit_btn:hover{
+    background-color: #ea6614;
+}
+
+.orange{
+    color: black
+}
+
+.orange:hover{
+    color: #EC732A
 }
 /*End of information section design*/
 
@@ -142,7 +151,7 @@ body{
     justify-content: center;
 }
 
-#status{
+.orangeText{
     color: #EC732A;
 }
 
@@ -154,6 +163,10 @@ body{
     line-height: 2;
     font-size: 24px;
     visibility:hidden;
+}
+
+.activity_section{
+    visibility: hidden;
 }
 /*End of information section design*/
 
@@ -171,7 +184,7 @@ body{
 }
   
 .modal-content{
-    background-color: #fefefe;
+    background-color: #00515A;
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
@@ -179,6 +192,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
   
 .close{
@@ -201,12 +215,12 @@ body{
     justify-content: center;
     text-align: center;
     padding: 2vh 4vw;
-    color: #ED0137;
 }
 
 .modal-content input[type="text"]{
     margin-top: 2vh;
     padding: 1vh 0.5vw;
+    outline-color: #00776C;
 }
 
 .login_btn{
@@ -214,12 +228,16 @@ body{
     margin-right: auto;
     margin-top: 2vh;
     border-radius: 20px;
-    background-color: #ED0137;
+    background-color: #00776C;
     color: white;
     width: 10rem;
     padding: 1vh 1vw;
     border: none;
     font-weight: bold;
+}
+
+.login_btn:hover{
+    background-color: #007166;
 }
 /*End of modal design*/
 

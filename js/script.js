@@ -16,6 +16,7 @@ const register = document.getElementById("register");
 const loginError = document.getElementById("login_error");
 const regError = document.getElementById("reg_error");
 const IPAddress = document.getElementById("ip_address");
+const boredButton = document.getElementById("bored");
 
 //When the user clicks on the button, open the modal
 signinButton.onclick = function() {
@@ -118,6 +119,12 @@ inputButton.addEventListener('click', (event) => {
         getNationalityPrediction(input);
         getAgePrediction(input);
     }
+})
+
+boredButton.addEventListener('click', (event) => {
+    document.getElementById("activity_section").style.visibility = "visible"
+
+    getRandomActivity();
 })
 
 function getRandomImage(){
