@@ -119,7 +119,8 @@ body{
     color: rgb(252, 245, 236);
     width: 8.5rem;
     padding: 1.5vh 1.5vw;
-    border: none
+    border: none;
+    margin-bottom: 1vw;
 }
 
 .data button:hover{

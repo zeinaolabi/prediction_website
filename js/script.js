@@ -3,6 +3,7 @@ const APIgender = "https://api.genderize.io?name=";
 const APIage ="https://api.agify.io/?name=";
 const APInationality = "https://api.nationalize.io/?name=";
 const dogImage = "https://dog.ceo/api/breeds/image/random";
+const APIip = "https://api.ipify.org/?format=json";
 const inputButton = document.getElementById("submit");
 const signinModal = document.getElementById("signin_modal");
 const signinButton = document.getElementById("signin");
@@ -14,6 +15,7 @@ const login = document.getElementById("login");
 const register = document.getElementById("register");
 const loginError = document.getElementById("login_error");
 const regError = document.getElementById("reg_error");
+const IPAddress = document.getElementById("ip_address");
 
 //When the user clicks on the button, open the modal
 signinButton.onclick = function() {
@@ -96,6 +98,9 @@ login.addEventListener('click', (event) => {
 //Changing the random image on refresh
 getRandomImage();
 
+//Reaveal IP Address
+getIPAddress();
+
 //Reveal results on click
 inputButton.addEventListener('click', (event) => {
     let input = document.querySelector('[name="input"]').value.trim()
@@ -158,4 +163,12 @@ function getNationalityPrediction(input){
             document.getElementById("nationality_prediction").textContent = "No results found!"
         }
     });
+}
+
+function getIPAddress(){
+    //Fetching IP address using Axios
+    axios(APIip)
+    .then(response => {
+        IPAddress.textContent = response.data.ip
+    })
 }
